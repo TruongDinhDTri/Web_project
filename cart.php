@@ -2,9 +2,13 @@
 		include 'inc/header.php';
 ?>
 <?php 
-	if(Session::get('customer_login')!=true){
-		header('Location:login.php');
+	$login_check = Session::get('customer_login');
+	if(!$login_check)
+	{
+	  	header('Location:login.php');
 	}
+?>  
+<?php 
 	if(isset($_GET['cartid']))
   	{
       $id = $_GET['cartid'];
